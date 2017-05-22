@@ -1,0 +1,4 @@
+.question data-fragment-id="test-#{test.id}"
+  .questions
+    - questions.each_with_index do |question, index|
+      = render 'questions/question', question: question, test: test, index: index

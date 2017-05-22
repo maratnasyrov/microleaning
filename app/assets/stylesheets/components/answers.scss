@@ -1,0 +1,11 @@
+.add-answer {
+  background-image: url("btn/answer.png");
+  padding: 13px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+
+  &:hover {
+    background-image: url("btn/answer-hover.png");
+  }
+}

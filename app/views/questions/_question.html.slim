@@ -1,0 +1,10 @@
+div id="test-#{test.id}-question-#{question.id}" class="row question medium-12"
+  .medium-1.small-1.columns.index = index+1
+  .medium-8.small-8.columns = question.name
+  center.medium-1.small-1.columns.part = link_to '', root_path, class: "add-answer"
+  center.medium-1.small-1.columns.part = link_to '', root_path, class: "edit-question"
+  center.medium-1.small-1.columns.part
+    = link_to '', [test, question],
+      data: { remote: true, behavior: "fragments", confirm: "Вы уверены?" },
+      method: :delete,
+      class: "delete-question"

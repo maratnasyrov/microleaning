@@ -1,0 +1,19 @@
+.medium-12.row
+  ul.breadcrumbs
+    li
+      = link_to 'Тесты', sciences_path
+    li
+      = link_to science.name, science_path(science)
+    li
+      span.show-for-sr Current: 
+      | #{test.name}
+  .row.main-part
+    .test-title.medium-11.small-11.columns = test.name
+    .medium-1.small-1.columns.add-btn.add-test-dropdown
+      button.float-right data-toggle="add-question" type="button" class="add-test"
+      #add-question.dropdown-pane.bottom.dropdown-question data-dropdown=""
+        = simple_form_for [test, question], data: { remote: true, behavior: "fragments" } do |f|
+          = f.input :name
+          = f.submit
+  .tests
+    = render "questions/questions", questions: questions

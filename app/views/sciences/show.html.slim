@@ -1,0 +1,18 @@
+.medium-12.row
+  nav aria-label=("You are here:") role="navigation" 
+    ul.breadcrumbs
+      li
+        = link_to 'Тесты', sciences_path
+      li
+        span.show-for-sr Current: 
+        | #{science.name}
+  .row.main-part
+    .test-title.medium-11.small-11.columns = science.name
+    .medium-1.small-1.columns.add-btn = link_to '', new_science_path, class: "add-test"
+  .tests
+    - tests.each do |test|
+      .row.test.medium-12
+        .medium-7.small-5.columns = link_to test.name, science_test_path(science, test)
+        center.medium-3.small-5.columns.tests-number.part = test.decorate.questions_number
+        center.medium-1.small-1.columns.part = link_to '', edit_science_test_path(science, test), class: "edit-test"
+        center.medium-1.small-1.columns.part = link_to '', science_test_path(science, test),  method: :delete, data: { confirm: "Вы уверены?" }, class: "delete-test"
