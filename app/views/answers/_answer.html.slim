@@ -1,0 +1,10 @@
+div id="question-#{question.id}-answer-#{answer.id}" class="answer medium-12 row"
+  .medium-1.small-1.columns.index
+    span class="badge #{AnswerPolicy.new(answer).set_status_class}"= index+1
+  .medium-9.small-9.columns = answer.name
+  center.medium-1.small-1.columns.part = link_to '', root_path, class: "edit-answer"
+  center.medium-1.small-1.columns.part
+    = link_to '', [question, answer],
+      data: { remote: true, behavior: "fragments", confirm: "Вы уверены?" },
+      method: :delete,
+      class: "delete-answer"

@@ -4,6 +4,7 @@ class TestsController < ApplicationController
   expose(:science)
   expose(:question) { Question.new }
   expose(:questions) { test.questions.all }
+  expose(:answer) { Answer.new }
 
   def create
     test = Test.create(tests_params)

@@ -1,10 +1,22 @@
 div id="test-#{test.id}-question-#{question.id}" class="row question medium-12"
-  .medium-1.small-1.columns.index = index+1
-  .medium-8.small-8.columns = question.name
-  center.medium-1.small-1.columns.part = link_to '', root_path, class: "add-answer"
+  .medium-1.small-1.columns.index 
+    span.badge.primary = index+1
+  .medium-9.small-9.columns.name = question.name
   center.medium-1.small-1.columns.part = link_to '', root_path, class: "edit-question"
   center.medium-1.small-1.columns.part
     = link_to '', [test, question],
-      data: { remote: true, behavior: "fragments", confirm: "Вы уверены?" },
+      data: { confirm: "Вы уверены?" },
       method: :delete,
       class: "delete-question"
+
+.row.medium-12.add-answer-layout
+  center.medium-8.small-8.columns.add-answer-layout-title Варианты ответов:
+  center.medium-4.small-4.columns.add-answer-layout-title
+    button.float-right data-toggle="add-answer-#{question.id}" type="button" class="add-answer" Добавить вариант ответа
+    div id ="add-answer-#{question.id}" class="dropdown-pane bottom dropdown-answer" data-dropdown="" data-v-offset="10"
+      = simple_form_for [question, answer], data: { remote: true, behavior: "fragments" } do |f|
+        = f.input :name
+        = f.input :correct
+        = f.submit
+
+= render "answers/answers", question: question

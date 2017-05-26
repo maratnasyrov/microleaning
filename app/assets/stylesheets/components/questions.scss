@@ -5,14 +5,13 @@
 }
 
 .questions {
-  box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
-
   .question {
     margin: 0;
     padding: 10px 0 10px 0;
     border: 1px solid #dfe5ec;
     border-bottom: none;
     background-color: #fff;
+    box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
 
     a {
       color: #808182;
@@ -24,6 +23,10 @@
 
     &:last-child {
       border-bottom: 1px solid #dfe5ec;
+    }
+
+    .name {
+      text-align: center;
     }
   }
 }

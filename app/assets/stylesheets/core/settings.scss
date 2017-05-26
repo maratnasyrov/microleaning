@@ -216,7 +216,7 @@ $badge-background: $primary-color;
 $badge-color: foreground($badge-background);
 $badge-padding: .3em;
 $badge-minwidth: 2.1em;
-$badge-font-size: .6rem;
+$badge-font-size: .8rem;
 
 // 10. Breadcrumbs
 // ---------------
@@ -263,7 +263,7 @@ $buttongroup-expand-max: 6;
 $callout-background: $white;
 $callout-background-fade: 85%;
 $callout-border: 1px solid rgba($black, .25);
-$callout-margin: 0 0 1rem 0;
+$callout-margin: 0 0 0 0;
 $callout-padding: .7rem;
 $callout-font-color: $body-font-color;
 $callout-font-color-alt: $body-background;
@@ -492,14 +492,14 @@ $switch-paddle-transition: all .25s ease-out;
 // 31. Table
 // ---------
 
-$table-background: $white;
+$table-background: #d3cfff;
 $table-color-scale: 5%;
 $table-border: 1px solid smart-scale($table-background, $table-color-scale);
 $table-padding: rem-calc(8 10 10);
 $table-hover-scale: 2%;
 $table-row-hover: darken($table-background, $table-hover-scale);
 $table-row-stripe-hover: darken($table-background, $table-color-scale + $table-hover-scale);
-$table-striped-background: smart-scale($table-background, $table-color-scale);
+$table-striped-background: $white;
 $table-stripe: even;
 $table-head-background: smart-scale($table-background, $table-color-scale / 2);
 $table-foot-background: smart-scale($table-background, $table-color-scale);

@@ -1,7 +1,7 @@
 .medium-12.row
   ul.breadcrumbs
     li
-      = link_to 'Тесты', sciences_path
+      = link_to 'Предметы', sciences_path
     li
       = link_to science.name, science_path(science)
     li
@@ -12,7 +12,7 @@
     .medium-1.small-1.columns.add-btn.add-test-dropdown
       button.float-right data-toggle="add-question" type="button" class="add-test"
       #add-question.dropdown-pane.bottom.dropdown-question data-dropdown=""
-        = simple_form_for [test, question], data: { remote: true, behavior: "fragments" } do |f|
+        = simple_form_for [test, question] do |f|
           = f.input :name
           = f.submit
   .tests
