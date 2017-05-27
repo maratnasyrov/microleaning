@@ -1,10 +1,10 @@
 #answers.medium-12.small-12 data-fragment-id="question-#{question.id}"
-  - if notice
-    div class="#{msg_class}" data-closable="" 
-      = notice
-      button.close-button aria-label=("Dismiss alert") data-close="" tabindex="0" type="button" 
-        span aria-hidden="true"  ×
   table.answers
+    - if notice_msg
+      div class="#{msg_class}" data-closable="" 
+        = notice_msg
+        button.close-button aria-label=("Dismiss alert") data-close="" tabindex="0" type="button" 
+          span aria-hidden="true"  ×
     tbody
       - question.answers.each_with_index do |answer, index|
         tr

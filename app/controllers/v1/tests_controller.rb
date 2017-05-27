@@ -14,7 +14,7 @@ module V1
       if !test.nil?
         respond_with json: test
       else
-        respond_with json: {  error: "Not found", status: 401 }
+        respond_with json: {  error: "Not found", status: 404 }
       end
     end
   end

@@ -40,11 +40,6 @@ GEM
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
     active_link_to (1.0.3)
       actionpack
-    active_model_serializers (0.10.6)
-      actionpack (>= 4.1, < 6)
-      activemodel (>= 4.1, < 6)
-      case_transform (>= 0.2)
-      jsonapi-renderer (>= 0.1.1.beta1, < 0.2)
     activejob (5.0.2)
       activesupport (= 5.0.2)
       globalid (>= 0.3.6)
@@ -94,8 +89,6 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    case_transform (0.2)
-      activesupport
     choice (0.2.0)
     cliver (0.3.2)
     codeclimate-test-reporter (0.6.0)
@@ -203,7 +196,6 @@ GEM
     jasmine-core (2.5.2)
     jasmine-jquery-rails (2.0.3)
     json (2.0.3)
-    jsonapi-renderer (0.1.2)
     kaminari (1.0.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.0.1)
@@ -452,7 +444,6 @@ PLATFORMS
 
 DEPENDENCIES
   active_link_to
-  active_model_serializers (~> 0.10.0)
   autoprefixer-rails
   awesome_print
   brakeman

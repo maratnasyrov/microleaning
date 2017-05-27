@@ -2,6 +2,7 @@ class AnswersController < ApplicationController
   expose(:question)
   expose(:answers) { question.answers.all}
   expose(:answer)
+  expose(:notice_msg) { "" }
 
   def create
     if QuestionPolicy.new(question).check_answers?
@@ -11,8 +12,8 @@ class AnswersController < ApplicationController
       if success
         if QuestionPolicy.new(question).check_correct_answer? == true
           render_answers("Вариант ответа добавлен", "notice")
-        else
-          render_answers("Ответа добавлен, но ни один из ответов не является правильным!", "callout alert")
+        elsif QuestionPolicy.new(question).check_correct_answer? == false
+          render_answers("Ответ добавлен, но ни один из ответов не является правильным!", "callout alert")
         end
       else
         render_answers("Ошибка!", "callout alert")
@@ -35,7 +36,7 @@ class AnswersController < ApplicationController
   private
 
   def render_answers(notice, msg_class)
-    render "answers/_answers", locals: { answers: answers, notice: notice, msg_class: msg_class }
+    render "answers/_answers", locals: { answers: answers, notice_msg: notice, msg_class: msg_class }
   end
 
   def answers_params

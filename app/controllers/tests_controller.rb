@@ -5,23 +5,25 @@ class TestsController < ApplicationController
   expose(:question) { Question.new }
   expose(:questions) { test.questions.all }
   expose(:answer) { Answer.new }
+  expose(:notice_msg) { nil }
+  expose(:msg_class) { "" }
 
   def create
     test = Test.create(tests_params)
 
-    respond_with science, test, notice: "Тест создан"
+    respond_with science, test, notice: "Тест создан."
   end
 
   def edit
     test.update_attributes(tests_params)
 
-    respond_with test
+    respond_with test, notice: "Тест изменен."
   end
 
   def destroy
     test.destroy
 
-    respond_with tests
+    respond_with tests, notice: "Тест удален."
   end
 
   private

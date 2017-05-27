@@ -4,6 +4,7 @@ class QuestionsController < ApplicationController
   expose(:question)
   expose(:answer) { Answer.new }
   expose(:science)
+  expose(:notice_msg) { "" }
 
   def create
     question = Question.create(questions_params)
@@ -12,9 +13,9 @@ class QuestionsController < ApplicationController
     science_flag = Science.find_by(id: test.science_id)
 
     if success
-      respond_with science_flag, test
+      respond_with science_flag, test, notice: "Вопрос добавлен."
     else
-      respond_with test, notice: "Ошибка!"
+      respond_with science_flag, test, notice: "Ошибка!"
     end
   end
 
@@ -24,7 +25,7 @@ class QuestionsController < ApplicationController
     success = question.destroy
 
     if success
-      respond_with science_flag, test
+      respond_with science_flag, test,  notice: "Вопрос удален."
     else
       respond_with test, notice: "Ошибка!"
     end

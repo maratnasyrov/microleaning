@@ -1,13 +1,15 @@
 class QuestionDecorator < ApplicationDecorator
   delegate_all
 
-  # Define presentation-specific methods here. Helpers are accessed through
-  # `helpers` (aka `h`). You can override attributes, for example:
-  #
-  #   def created_at
-  #     helpers.content_tag :span, class: 'time' do
-  #       object.created_at.strftime("%a %m/%d/%y")
-  #     end
-  #   end
+  def question_and_answers_json
+    json_out = JSON.parse(object.to_json(
+      :include => { 
+        :answers => { 
+          :only => [ :id, :name, :correct, :question_id ]
+        }},
+      :only => [ :id, :name, :test_id ]
+    ))
 
+    return json_out
+  end
 end

@@ -4,7 +4,6 @@ ruby "2.3.3"
 
 gem "pg"
 gem "rails", "5.0.2"
-gem 'active_model_serializers', '~> 0.10.0'
 gem 'simple_token_authentication'
 
 # assets
