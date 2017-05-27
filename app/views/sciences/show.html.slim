@@ -8,7 +8,7 @@
         | #{science.name}
   .row.main-part
     .test-title.medium-11.small-11.columns = science.name
-    .medium-1.small-1.columns.add-btn = link_to '', new_science_path, class: "add-test"
+    .medium-1.small-1.columns.add-btn = link_to '', new_science_test_path(science), class: "add-test"
   .tests
     - tests.each do |test|
       .row.test.medium-12
