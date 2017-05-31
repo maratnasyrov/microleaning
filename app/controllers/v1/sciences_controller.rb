@@ -1,5 +1,5 @@
 module V1
-  class SciencesController < ApplicationController
+  class SciencesController < ApplicationController    
     expose(:sciences) { Science.all }
     expose :science
 

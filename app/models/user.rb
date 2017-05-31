@@ -1,9 +1,10 @@
 class User < ApplicationRecord
-  acts_as_token_authenticatable
+  # Include default devise modules.
+  devise :database_authenticatable, :registerable,
+          :recoverable, :rememberable, :trackable, :validatable,
+          :confirmable, :omniauthable
+  include DeviseTokenAuth::Concerns::User
   has_many :sciences
-  
-  devise :database_authenticatable, :registerable, :confirmable,
-    :recoverable, :rememberable, :trackable, :validatable
 
   validates :full_name, presence: true
 end

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: "users/registrations" }
+  mount_devise_token_auth_for 'User', at: 'auth'
   root to: "sciences#index"
 
   namespace :v1, defaults: { format: "json" } do
