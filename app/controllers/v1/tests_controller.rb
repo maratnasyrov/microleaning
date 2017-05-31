@@ -4,6 +4,8 @@ module V1
     expose(:tests) { science.tests.all }
     expose :test
 
+    skip_before_action :authenticate_user!
+
     def index
       respond_with json: tests
     end

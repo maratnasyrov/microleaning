@@ -4,6 +4,8 @@ module V1
     expose(:questions) { test.questions.all }
     expose :question
 
+    skip_before_action :authenticate_user!
+
     def index
       respond_with json: questions
     end

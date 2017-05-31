@@ -3,6 +3,8 @@ module V1
     expose(:sciences) { Science.all }
     expose :science
 
+    skip_before_action :authenticate_user!
+
     def index
       respond_with json: sciences
     end
