@@ -12,7 +12,7 @@
   .tests
     - tests.each do |test|
       .row.test.medium-12
-        .medium-7.small-5.columns = link_to test.name, science_test_path(science, test)
+        .medium-7.small-4.columns = link_to test.name, science_test_path(science, test)
         center.medium-3.small-5.columns.tests-number.part = test.decorate.questions_number
         center.medium-1.small-1.columns.part = link_to '', edit_science_test_path(science, test), class: "edit-test"
         center.medium-1.small-1.columns.part = link_to '', science_test_path(science, test),  method: :delete, data: { confirm: "Вы уверены?" }, class: "delete-test"

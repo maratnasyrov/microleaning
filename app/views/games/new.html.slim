@@ -1,0 +1,15 @@
+center.row.main-part.new-game
+  .medium-5
+    .test-title = test.name
+    Выберите уровень
+    = simple_form_for [ test, game ] do |f|
+      = f.input :answers_number, as: :hidden, input_html: { value: 5 }
+      = f.button :submit, "Легкий уровень (5 вопросов)"
+
+    = simple_form_for [ test, game ] do |f|
+      = f.input :answers_number, as: :hidden, input_html: { value: 10 }
+      = f.button :submit, "Средний уровень (10 вопросов)"
+
+    = simple_form_for [ test, game ] do |f|
+      = f.input :answers_number, as: :hidden, input_html: { value: 15 }
+      = f.button :submit, "Тяжелый уровень (15 вопросов)"

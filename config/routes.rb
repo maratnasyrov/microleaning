@@ -14,6 +14,12 @@ Rails.application.routes.draw do
     resources :tests do
       resources :questions
     end
+
+    resources :tests do
+      resources :games
+    end
+
+    match 'games_create', to: 'games#create', as: :games_create, via: [:get, :post]
   end
 
   resources :sciences do

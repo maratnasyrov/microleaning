@@ -1,0 +1,10 @@
+.row
+  center
+    - questions.each_with_index do |question, index|
+      .medium-5.small-5.questions
+        .question.row
+          .columns.medium-1
+            span.badge.primary = index+1
+          .columns.medium-11 = question.name
+        .answers.row.margin-none
+          = render "user_answers/user_answers", question: question

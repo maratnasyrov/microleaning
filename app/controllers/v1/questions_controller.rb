@@ -8,7 +8,7 @@ module V1
 
     def index
       respond_with json: JSON.parse(questions.to_json(
-          :include => { 
+          :include => {
           :answers => { 
             :only => [ :id, :name, :correct, :question_id ]
           }},

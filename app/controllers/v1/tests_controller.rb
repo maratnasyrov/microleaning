@@ -7,16 +7,28 @@ module V1
     skip_before_action :authenticate_user!
 
     def index
-      respond_with json: tests
+      authenticate_user = UserPolicy.new(params[:token]).check_user
+
+      if authenticate_user
+        respond_with json: tests
+      else
+        respond_with json: {  error: "Not authorized", status: 401 }
+      end
     end
 
     def show
-      test = Test.find_by(id: params[:id])
+      authenticate_user = UserPolicy.new(params[:token]).check_user
+      
+      if authenticate_user
+        test = Test.find_by(id: params[:id])
 
-      if !test.nil?
-        respond_with json: test
+        if !test.nil?
+          respond_with json: test
+        else
+          respond_with json: {  error: "Not found", status: 404 }
+        end
       else
-        respond_with json: {  error: "Not found", status: 404 }
+        respond_with json: {  error: "Not authorized", status: 401 }
       end
     end
   end

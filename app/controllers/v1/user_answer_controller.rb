@@ -1,31 +1,28 @@
 module V1
-  class SciencesController < ApplicationController
-    expose(:sciences) { Science.all }
-    expose :science
+  class UserAnswersController < ApplicationController
+    expose :user_answer
 
     skip_before_action :authenticate_user!
 
-    def index
+    def create
       authenticate_user = UserPolicy.new(params[:token]).check_user
 
       if authenticate_user
-        respond_with json: sciences
+        user_answer = UserAnswer.create(game_id: game.id, answer_id: answer.id, question_id: question.id)
+
+        respond_with json: user_answer
       else
         respond_with json: {  error: "Not authorized", status: 401 }
       end
     end
 
-    def show
+    def destroy
       authenticate_user = UserPolicy.new(params[:token]).check_user
-
+      
       if authenticate_user
-        science = Science.find_by(id: params[:id])
+        user_answer.destroy
 
-        if !science.nil?
-          respond_with json: science
-        else
-          respond_with json: {  error: "Not found", status: 404 }
-        end
+        respond_with json: { accepted: "UserAnswer was successfully deleted", status: 201 }
       else
         respond_with json: {  error: "Not authorized", status: 401 }
       end
